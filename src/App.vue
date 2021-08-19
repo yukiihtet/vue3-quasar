@@ -25,7 +25,7 @@
       <q-img src="./assets/mountain.jpg" class="header-image absolute-top" />
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="bg-grey-2">
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="bg-purple-2 text-purple">
       <q-list>
         <div style="background: linear-gradient(to bottom, #014a55, purple)">
           <q-item>
@@ -56,7 +56,7 @@
               <q-icon name="public" color="accent" />
             </q-item-section>
             <q-item-section>
-              <q-item-label class="text-purple">Country</q-item-label>
+              <q-item-label >Country</q-item-label>
             </q-item-section>
           </q-item>
           <q-item clickable :to="{ name: 'Weather' }" exact>
@@ -64,7 +64,7 @@
               <q-icon name="cloud" color="accent" />
             </q-item-section>
             <q-item-section>
-              <q-item-label class="text-purple">Weather</q-item-label>
+              <q-item-label >Weather</q-item-label>
             </q-item-section>
           </q-item>
           <q-item clickable :to="{ name: 'User' }" exact>
@@ -72,15 +72,15 @@
               <q-icon name="people" color="accent" />
             </q-item-section>
             <q-item-section>
-              <q-item-label class="text-purple">User</q-item-label>
+              <q-item-label >User</q-item-label>
             </q-item-section>
           </q-item>
-          <q-item clickable :to="{ name: 'Post' }" exact>
+          <q-item clickable  :to="{ name: 'Post' }" exact>
             <q-item-section avatar>
               <q-icon name="assignment" color="accent" />
             </q-item-section>
-            <q-item-section>
-              <q-item-label class="text-purple">Post</q-item-label>
+            <q-item-section  >
+              <q-item-label >Post</q-item-label>
             </q-item-section>
           </q-item>
           <q-item>
@@ -88,7 +88,7 @@
               <q-icon name="logout" color="accent" />
             </q-item-section>
             <q-item-section @click="logout">
-              <q-item-label class="text-purple">Logout</q-item-label>
+              <q-item-label >Logout</q-item-label>
             </q-item-section>
           </q-item>
         </div>
@@ -111,5 +111,8 @@
   z-index: -1;
   opacity: 0.2;
   filter: grayscale(100%);
+}
+.q-drawer {
+  color: #42b983;
 }
 </style>

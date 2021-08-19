@@ -24,34 +24,13 @@ export default {
         $q.notify("Post Added");
         $router.push("Post");
       }
+      (post.title = ""), (post.body = "");
     };
-    //  const updatePost=()=>{
-    //    store.dispatch("postModule/updatePost",post)
-    //    show.value = false;
-    //   }
 
-    // const showForm=(action,editPost=undefined) =>{
-    //   if(show.value=true){
-    //     if(action.edit && editPost !== undefined){
-    //       post.id=editPost.id;
-    //       post.title=editPost.title;
-    //       post.body=editPost.body;
-    //     }else{
-    //       post.title="";
-    //       post.body=""
-    //     }
-    //     isEdit.value = action.edit;
-    //     console.log(editPost);
-    //   }
-    // }
-    // const isEdit = ref(false);
     const show = ref(false);
     return {
       createPost,
       ...toRefs(post),
-      // showForm,
-      // isEdit,
-      // updatePost,
     };
   },
 };

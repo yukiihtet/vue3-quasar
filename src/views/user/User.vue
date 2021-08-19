@@ -1,74 +1,85 @@
 <template>
   <!-- For user roll -->
 
-  <div v-if="authUser.role === 'user'">
-    <div
+  <q-card v-if="authUser.role === 'user'">
+    <q-card-section
       v-for="user in users"
       :key="user.id"
-      class="row justify-center rounded my-card text-white q-pa-md"
-      style="background: #014a55"
+      class="row justify-center rounded my-card text-white q-pa-md q-mb-sm"
+      style="background: #9c27b0"
     >
-      <div class="col-6 text-left">
-        <div class="text-h6">Name: {{ user.name }}</div>
-      </div>
-      <div class="col-6 text-left">
-        <div class="text-h6">Email: {{ user.email }}</div>
-      </div>
-    </div>
-  </div>
+      <q-item class="col-6 text-left">
+        <q-item-section avatar>
+          <q-icon name="person" color="white" />
+        </q-item-section>
+        <q-item-section>
+          <q-item-label class="text-h6 text-bold q-pt-xlq-mt-sm text-white">{{
+            user.name
+          }}</q-item-label>
+        </q-item-section>
+      </q-item>
+      <q-item class="col-6 text-left">
+        <q-item-section avatar>
+          <q-icon name="email" color="white" />
+        </q-item-section>
+        <q-item-section>
+          <q-item-label class="text-h6 text-bold q-pt-xlq-mt-sm text-white">{{
+            user.email
+          }}</q-item-label>
+        </q-item-section>
+      </q-item>
+    </q-card-section>
+  </q-card>
 
   <!-- for admin   roll -->
-  <q-page
-    v-else
-    class="column"
-    style="background: linear-gradient(to bottom,  #669299,purple,#014a55"
-  >
-    <div class="row q-pa-sm">
-      <q-input
-        filled
-        bg-color="white"
-        v-model="name"
-        label="Name"
-        dense
-        color="purple"
-        class="col"
-        square
-        lazy-rules
-        :rules="[(val) => (val && val.length > 0) || 'User Name is required']"
-      />
-    </div>
-    <div class="row q-pa-sm">
-      <q-input
-        filled
-        bg-color="white"
-        v-model="email"
-        label="Email"
-        dense
-        color="purple"
-        class="col"
-        square
-        lazy-rules
-        :rules="[(val) => (val && val.length > 0) || 'User Email is required']"
-      />
-    </div>
+  <div v-else class="column bg-accent">
+    <div class="q-pa-sm">
+      <q-form class="q-gutter-sm">
+        <q-item-label style="color: white" class="text-bold">NAME</q-item-label>
+        <q-input
+          outlined
+          bg-color="white"
+          v-model="name"
+          color="purple"
+          lazy-rules
+          :rules="[(val) => (val && val.length > 0) || 'User Name is required']"
+        />
 
-    <div class="row q-pa-sm">
-      <q-btn
-        dense
-        flat
-        icon="add"
-        @click="createUser"
-        class="bg-white"
-        label="Add"
-      />
-      <q-btn
-        label="Clear"
-        @click="clear"
-        class="cursor-pointer bg-white q-ml-sm"
-        icon="clear"
-      />
-    </div>
+        <q-item-label style="color: white" class="text-bold"
+          >EMAIL</q-item-label
+        >
+        <q-input
+          outlined
+          bg-color="white"
+          v-model="email"
+          color="purple"
+          lazy-rules
+          :rules="[
+            (val) => (val && val.length > 0) || 'User Email is required',
+          ]"
+        />
 
+        <div class="row q-pa-sm">
+          <q-btn
+            outlined
+            dense
+            flat
+            icon="add"
+            @click="createUser"
+            class="bg-secondary cursor-pointer text-white text-bold"
+            label="Add"
+            type="submit"
+          />
+
+          <!-- <q-btn
+            label="Clear"
+            @click="clear"
+            class="cursor-pointer bg-white q-ml-sm"
+            icon="clear"
+          /> -->
+        </div>
+      </q-form>
+    </div>
     <q-list class="text-white">
       <q-item
         v-for="user in users"
@@ -82,16 +93,16 @@
             class="no-pointer-events"
             v-model="user.done"
             label=""
-            color="teal"
+            color="grey"
           />
         </q-item-section>
         <q-item-section>
-          <q-item-label class="col-md-3 text-left">
+          <q-item-label class="col-md-3 text-left text-bold">
             {{ user.id }}-Name: {{ user.name }}
           </q-item-label>
         </q-item-section>
         <q-item-section>
-          <q-item-label class="col-md-3 text-left">
+          <q-item-label class="col-md-3 text-left text-bold">
             Email: {{ user.email }}
           </q-item-label>
         </q-item-section>
@@ -108,7 +119,7 @@
         </q-item-section>
       </q-item>
     </q-list>
-  </q-page>
+  </div>
 </template>
 
 <script src="./user.js" />

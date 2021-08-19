@@ -30,11 +30,12 @@ export default {
 
     const createUser = () => {
       if (user.name !== "" && user.email !== "") {
-        user.id = users.value.length + 1;
         store.dispatch("userModule/createUser", user);
+        user.id = users.value.length + 1;
         show.value = false;
         $q.notify("User Added");
       }
+      (user.name = ""), (user.email = "");
     };
 
     const deleteUser = (index) => {
@@ -47,7 +48,7 @@ export default {
         },
         cancel: {
           push: true,
-          color: "teal",
+          color: "grey",
         },
         persistent: true,
       }).onOk(() => {
@@ -57,9 +58,9 @@ export default {
       });
     };
 
-    const clear = () => {
-      (user.name = ""), (user.email = "");
-    };
+    // const clear = () => {
+    //   (user.name = ""), (user.email = "");
+    // };
 
     watch(commonState.error, (newStatus) => {
       if (newStatus === true) {
@@ -74,7 +75,7 @@ export default {
       users,
       authUser,
       commonState,
-      clear,
+      // clear,
       createUser,
       deleteUser,
       ...toRefs(user),

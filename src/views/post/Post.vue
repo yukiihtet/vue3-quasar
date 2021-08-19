@@ -2,9 +2,9 @@
   <q-page>
     <div
       v-if="authUser.role != 'user'"
-      class="row q-pa-sm col square bg-accent"
+      class="row q-pa-sm q-ml-md q-mr-md  square bg-accent"
     >
-      <q-item clickable :to="{ name: 'CreatePost' }" exact>
+      <q-item  clickable :to="{ name: 'CreatePost' }" exact>
         <q-item-section>
           <q-btn flat dense color="white" label="Create Post" icon="add" />
         </q-item-section>
@@ -12,7 +12,7 @@
     </div>
 
     <div class="q-pa-md row items-start q-gutter-md square">
-      <q-card v-for="post in posts" :key="post.id" class="my-card">
+      <q-card v-for="post in posts" :key="post.id" class="my-card" style="width:100%">
         <q-card-section class="bg-accent text-white">
           <div class="text-h6">{{ post.id }}-{{ post.title }}</div>
           <div class="text-subtitle2">{{ post.body }}</div>
@@ -57,7 +57,7 @@
         <q-card style="min-width: 300px; min-height: 350px">
           <q-card-section class="bg-purple">
             <div class="text-h6 text-center text-white">
-             "Update Post"
+             Update Post
             </div>
           </q-card-section>
           <q-card-section>
@@ -87,7 +87,7 @@
             </q-form>
           </q-card-section>
           <q-card-actions align="right">
-            <q-btn v-close-popup square label="Close" color="purple" />
+            <q-btn v-close-popup square label="Close" color="grey" />
             <!-- <q-btn
              square
               v-if="!isEdit"
@@ -100,7 +100,7 @@
              square
               v-if="isEdit"
               @click="updatePost"
-              color="deep-purple-10"
+              color="purple"
               label="Update"
             />
           </q-card-actions>

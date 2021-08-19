@@ -1,11 +1,11 @@
 <template>
-  <q-page>
-    <div class="row q-pa-sm col square">
-      <q-card class="my-card">
-        <q-card-section class="bg-teal text-white">
+  <q-page >
+    <div class="row q-pa-sm col square ">
+      <q-card class="my-card" style="width:100%">
+        <q-card-section class="bg-purple text-white" >
           <div class="text-h6">Id: {{ $store.state.postModule.post.id }}</div>
           <div class="text-h6">
-            userId: {{ $store.state.postModule.post.id }}
+            userId: {{ $store.state.postModule.post.userId }}
           </div>
           <div class="text-h6">
             postTitle: {{ $store.state.postModule.post.title }}
@@ -24,7 +24,7 @@
                 flat
                 square
                 dense
-                color="red"
+                color="grey"
                 label="Back"
                 icon="backspace"
               />

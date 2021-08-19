@@ -60,7 +60,7 @@ export default {
         },
         cancel: {
           push: true,
-          color: "teal",
+          color: "grey",
         },
         persistent: true,
       }).onOk(() => {

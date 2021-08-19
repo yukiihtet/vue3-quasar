@@ -4,11 +4,12 @@
       {{ searchKeyword }} capital is not found.
     </q-banner>
   </div>
-  <div v-show="authUser.role != 'user'" class="q-mt-lg q-mx-md">
+  <div v-show="authUser.role != 'user'" class="q-mt-lg q-mx-md ">
     <q-input
       outlined
       v-model="searchKeyword"
       label="Search Capital"
+      label-color="purple"
       color="accent"
     >
       <template v-slot:append>
@@ -25,24 +26,36 @@
   </div>
   <div v-for="(country, index) in countries" :key="index" class="q-pa-md">
     <div
-      class="row justify-center rounded my-card text-white"
-      style="background: radial-gradient(circle, #014a55 0%, purple 100%)"
+      class="row justify-center rounded my-card text-white bg-accent"
+      
     >
-      <div class="col-2 text-center">
-        <div class="text-h6">Name: {{ country.name }}</div>
+      <div class="col-4 text-left q-pa-sm">
+        <img :src="country.flag" style="width:50%" />
       </div>
-      <div class="col-2 text-center">
-        <div class="text-h6">Capital: {{ country.capital }}</div>
+      <div class="col-2 text-left q-pt-md">
+        <div class="text-h6 q-pa-sm">
+          Name<br />
+          {{ country.name }}
+        </div>
       </div>
-      <div class="col-2 text-center">
-        <div class="text-h6">Region: {{ country.region }}</div>
+      <div class="col-2 text-left q-pt-md">
+        <div class="text-h6 q-pa-sm">
+          Capital<br />
+          {{ country.capital }}
+        </div>
+      </div>
+      <div class="col-2 text-left q-pt-md">
+        <div class="text-h6 q-pa-sm">
+          Region<br />
+          {{ country.region }}
+        </div>
       </div>
 
-      <div class="col-2 text-center">
-        <div class="text-h6">Population: {{ country.population }}</div>
-      </div>
-      <div class="col-4 text-center">
-        <img :src="country.flag" style="height: 100px" />
+      <div class="col-2 text-left q-pt-md">
+        <div class="text-h6 q-pa-sm">
+          Population<br />
+          {{ country.population }}
+        </div>
       </div>
     </div>
   </div>
